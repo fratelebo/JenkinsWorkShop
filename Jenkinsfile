@@ -21,6 +21,11 @@ pipeline {
         stage('Execute sh')
         
         {
+            
+            agent
+            {
+                label 'built-in'
+            }
             steps
             {
             sh 'ls'
