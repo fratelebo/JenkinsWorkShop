@@ -8,6 +8,17 @@ pipeline {
     agent any
 
     stages {
+        stage('Clean workspace')
+        {
+            
+            steps
+            {
+            cleanWs()
+            }
+            
+            
+        }
+        
         stage('Hello') {
             steps {
                 echo 'Hello World'
