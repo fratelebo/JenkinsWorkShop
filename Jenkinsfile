@@ -8,7 +8,29 @@ pipeline {
     agent any
 
     stages {
-        stage('Clean workspace')
+       
+        
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                sh 'echo ${testArg}'
+                sh 'echo "Added from geenrator"'
+            }
+        }
+        
+        stage('Execute sh')
+        
+        {
+            steps
+            {
+            sh 'ls'
+                sh 'chmod +x JenkinsTest.sh'
+                sh './JenkinsTest.sh'
+            }
+        
+        }
+        
+         stage('Clean workspace')
         {
             
             steps
@@ -19,12 +41,6 @@ pipeline {
             
         }
         
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-                sh 'echo ${testArg}'
-                sh 'echo "Added from geenrator"'
-            }
-        }
+        
     }
 }
