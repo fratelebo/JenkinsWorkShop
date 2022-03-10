@@ -1,0 +1,25 @@
+node('build-in'){
+stage('clone from repo')
+{
+checkout scm
+}
+stage('show env vars')
+{
+sh "echo ${env.WORKSPACE}"
+}
+stage('execute script')
+
+{
+            sh 'ls'
+            sh 'chmod +x JenkinsTest.sh'
+            sh './JenkinsTest.sh'
+}
+
+
+
+stage ('clean WS')
+{
+            cleanWs deleteDirs: true
+
+}
+}
